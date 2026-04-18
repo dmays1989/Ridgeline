@@ -189,7 +189,7 @@ body.day #daylightBtn{background:#1a1a2e;color:#f0c030;border-color:#333;}
   <div class="topbar">
     <div style="flex:1">
       <div class="topbar-title">RIDGE LINE <span style="color:var(--accent)">▲</span></div>
-      <span class="topbar-sub">Roof Takeoff Manager · v16</span>
+      <span class="topbar-sub">Roof Takeoff Manager · v17</span>
     <div id="userBadge" class="user-badge hidden" onclick="showScreen('settings');renderSettings()">
       <div class="user-dot"></div>
       <span id="userBadgeName">User</span>
@@ -2256,19 +2256,38 @@ async function authSubmit(){
   const btn=document.getElementById('authSubmitBtn');
   if(!email||!password){showAuthError('Please enter email and password');return;}
 
-  // If Firebase not loaded yet, try initializing first
-  if(!fbAuth){
-    btn.innerHTML='<span class="spinner"></span> Connecting…';btn.disabled=true;
-    try{await initFirebase();}catch(e){showAuthError('Connection failed. Check your internet and try again.');btn.innerHTML=isLogin?'Sign In':'Create Account';btn.disabled=false;return;}
-  }
-
   btn.innerHTML='<span class="spinner"></span>';btn.disabled=true;
   document.getElementById('authError').style.display='none';
+
+  // Debug: show status
+  showAuthError('Connecting to Firebase…');
+  document.getElementById('authError').style.background='rgba(45,125,210,.15)';
+  document.getElementById('authError').style.borderColor='rgba(45,125,210,.4)';
+  document.getElementById('authError').style.color='var(--blue)';
+
+  // If Firebase not loaded yet, try initializing first
+  if(!fbAuth){
+    try{
+      showAuthError('Loading Firebase scripts…');
+      document.getElementById('authError').style.display='block';
+      await initFirebase();
+      showAuthError('Firebase loaded — signing in…');
+    }catch(e){
+      showAuthError('Failed to load Firebase: '+e.message);
+      document.getElementById('authError').style.background='rgba(224,48,48,.15)';
+      document.getElementById('authError').style.color='#ff6b6b';
+      btn.innerHTML=isLogin?'Sign In':'Create Account';btn.disabled=false;
+      return;
+    }
+  }
+
   try{
     if(isLogin){
+      showAuthError('Signing in…');
       await fbAuth.signInWithEmailAndPassword(email,password);
     } else {
       const name=document.getElementById('authName').value.trim()||email.split('@')[0];
+      showAuthError('Creating account…');
       const cred=await fbAuth.createUserWithEmailAndPassword(email,password);
       await cred.user.updateProfile({displayName:name});
       fbUser=cred.user;
@@ -2284,7 +2303,9 @@ async function authSubmit(){
       'auth/network-request-failed':'Network error — check your connection',
       'auth/too-many-requests':'Too many attempts — try again later',
     };
-    showAuthError(msgs[e.code]||e.message||'Login failed');
+    showAuthError((msgs[e.code]||e.message||'Login failed')+' ('+e.code+')');
+    document.getElementById('authError').style.background='rgba(224,48,48,.15)';
+    document.getElementById('authError').style.color='#ff6b6b';
   }
   btn.innerHTML=isLogin?'Sign In':'Create Account';btn.disabled=false;
 }
