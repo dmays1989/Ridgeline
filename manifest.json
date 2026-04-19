@@ -1,0 +1,22 @@
+{
+  "name": "Ridge Line Roof Takeoff",
+  "short_name": "Ridge Line",
+  "description": "Professional roof takeoff calculator for AG Panel, Standing Seam, Shingles, TPO and PVC. Calculate materials, manage jobs, schedule crew and sync with CompanyCam.",
+  "start_url": "/Ridgeline-Roofing-Material-Tracker/",
+  "scope": "/Ridgeline-Roofing-Material-Tracker/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1117",
+  "theme_color": "#f0650a",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDAiIGZpbGw9IiMwZjExMTciLz4KICA8cG9seWdvbiBwb2ludHM9IjI1NiwxMDAgNjAsMjkwIDYwLDM4MCAyNTYsMjkwIiBmaWxsPSIjMWUyNDMzIiBzdHJva2U9IiMyYTMxNDgiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwb2x5Z29uIHBvaW50cz0iMjU2LDEwMCA0NTIsMjkwIDQ1MiwzODAgMjU2LDI5MCIgZmlsbD0iIzE3MWIyNCIgc3Ryb2tlPSIjMmEzMTQ4IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cG9seWxpbmUgcG9pbnRzPSI1NiwyOTIgMjU2LDk2IDQ1NiwyOTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwNjUwYSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iMjU2IiB5PSI0NTAiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjUyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjZjA2NTBhIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMyI+UklER0U8L3RleHQ+CiAgPHRleHQgeD0iMjU2IiB5PSI0OTQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjNmI3YTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iOCI+TElORTwvdGV4dD4KPC9zdmc+",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "lang": "en-US"
+}
